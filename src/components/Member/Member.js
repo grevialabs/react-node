@@ -16,8 +16,8 @@ class Member extends React.Component {
     async getData() {
 
         try {
-            const apiUrl = 'http://www.grevia.com/api/member?secretkey=grevia';
-            // const apiUrl = 'http://localhost/greviacom/api/member?secretkey=grevia';
+            // const apiUrl = 'http://www.grevia.com/api/member?secretkey=grevia';
+            const apiUrl = 'http://localhost/greviacom/api/member?secretkey=grevia';
 
             const res = await axios.get(apiUrl);
             return await res.json();
