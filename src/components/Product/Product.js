@@ -15,7 +15,10 @@ export default class Product extends React.Component {
   }
 
   componentDidMount() {
-    var url = 'http://localhost/greviacom/api/member_json?secretkey=grevia';
+    var url = 'http://www.grevia.com/api/member_json?secretkey=grevia';
+    // var url = 'http://localhost/greviacom/api/member_json?secretkey=grevia';
+    // var url = 'http://wallet.grevia.com/api/member/get_list';
+    // var url = 'http://localhost/wallet.grevia.com/api/member/get_list';
     axios.get(url)
       .then( res => {
         const resdata = res.data;
@@ -36,22 +39,22 @@ export default class Product extends React.Component {
       <div>
         Total ada { this.state.totalRows } ya
       </div>
-      <table class='table table-bordered table-striped'>
-        <tr class='bg-primary bold'>
+      <table className='table table-bordered table-striped'>
+        <tr className='bg-primary bold'>
           <td>#</td>
           <td>Name</td>
           <td>Email</td>
           <td>Option</td>
         </tr>
 
-        { this.state.products.map((rs,idx) => 
+        { (this.state.products) ? this.state.products.map((rs,idx) => 
         <tr>
           <td>{ idx + 1}</td>
           <td>{ rs.name }</td>
           <td>{ rs.email }</td>
           <td><a href="">Detail</a></td>
         </tr>
-          ) }
+          ) : null }
       </table>
     </div>
     )
